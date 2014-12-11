@@ -1,0 +1,10 @@
+
+<h1>Week <%= params["week"] %></h1>
+
+<% @games.each do |game| %>
+
+<p>Home: <%= game["home"] %><p>
+
+<p>Away: <%= game["away"] %><p>
+
+<% end %>
