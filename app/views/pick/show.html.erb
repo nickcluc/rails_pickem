@@ -1,10 +1,33 @@
 
-<h1>Week <%= params["week"] %></h1>
+<h1 align="center">Week <%= params["week"] %></h1>
 
-<% @games.each do |game| %>
+<table align="center">
+  <thead>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Home Team</td>
+      <td>&nbsp;</td>
+      <td>Away Team</td>
+      <td>&nbsp;</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="5">&nbsp;<td></tr>
 
-<p>Home: <%= game["home"] %><p>
+      <form method="post" action="/picks">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <% @games.each do |game| %>
+        <tr>
+          <td><input type="radio" name="<%= game["id"]%>" value="<%= game["away"] %>"></td>
+          <td><%= game["away"] %></td>
+          <td>@</td>
+          <td><%= game["home"] %></td>
+          <td><input type="radio" name="<%= game["id"]%>" value="<%= game["home"] %>"></td>
+        </tr>
+      <tr><td colspan="5">&nbsp;<td></tr>
+        <% end %>
+        <tr><td align="center" colspan="5"><input type="submit" value="submit"></td></tr>
+      </form>
 
-<p>Away: <%= game["away"] %><p>
-
-<% end %>
+  </tbody>
+</table>

@@ -16,4 +16,9 @@ class PickController < ApplicationController
   def show
     @games = api_connection(params["week"])
   end
+
+  def create
+    binding.pry
+  end
+
 end
