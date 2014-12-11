@@ -4,16 +4,18 @@ require 'net/http'
 require 'JSON'
 require 'pry'
 
+
 api_key = ENV["NFL_API_KEY"]
 uri = URI("https://profootballapi.com/schedule")
 response = Net::HTTP.post_form(uri, { "api_key" => api_key,
   "season"=>'REG',
-  "week"=> 12,
+  "week" => 15,
   "year"=>2014,
   })
 
 data = JSON.parse(response.body)
 binding.pry
+
 File.open('Games.json', 'w') {|f| f.puts data}
 # score = 0
 

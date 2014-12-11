@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :user
+  get 'pick/show'
+
+  resources :user, :pick
 
   root 'user#index'
 
@@ -10,6 +12,10 @@ Rails.application.routes.draw do
   get '/user/:id' => 'user#show'
 
   post '/user/new' => 'user#new'
+
+  get "/picks" => 'pick#show'
+
+  post '/picks' => 'pick#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
