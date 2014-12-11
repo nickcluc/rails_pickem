@@ -1,0 +1,11 @@
+<h1>Pickem League!</h1>
+
+<a href="/user/new">Add a user</a>
+
+<h3>Members</h3>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><a href="/user/<%= user.id %>"><%= user.name %></a> - <%= user.score %></li>
+  <% end %>
+</ul>

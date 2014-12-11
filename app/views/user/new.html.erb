@@ -1,0 +1,15 @@
+<form action="/user" method="post">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label for="user_name">Name</label><br>
+  <input id="user_name" name="user[name]" type="text" />
+  <br>
+  <br>
+  <label for="user_email">email</label><br>
+  <input id="user_email" name="user[email]" type="text" />
+  <br>
+  <br>
+  <input name="commit" type="submit" value="Join!" />
+</form>
+
+<br>
+<a href="/all_users">Back to User List</a>
